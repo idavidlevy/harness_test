@@ -1,0 +1,22 @@
+pipeline:
+  id: pipeline_idavidlevy_harness_test_build_14a6
+  name: pipeline_idavidlevy_harness_test_build_14a6
+  stages:
+    - id: build
+      name: Build
+      runtime: cloud
+      clone:
+        enabled: true
+      cache:
+        enabled: true
+      steps:
+        - id: verify_clone
+          name: Verify Clone
+          run:
+            shell: bash
+            script: |-
+              echo "Repository cloned successfully"
+              ls -la
+              cat README.md
+  tags:
+    onboarding: "true"
